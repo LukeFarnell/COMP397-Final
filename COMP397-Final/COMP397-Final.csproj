@@ -67,6 +67,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\Ball.png" />
+    <Content Include="assets\images\Block1.png" />
     <Content Include="css\game.css" />
     <Content Include="index.html" />
     <Content Include="Scripts\lib\easeljs-0.8.0.min.js" />
@@ -85,6 +87,9 @@
     <TypeScriptCompile Include="Scripts\lib\preloadjs.d.ts" />
     <TypeScriptCompile Include="Scripts\lib\soundjs.d.ts" />
     <TypeScriptCompile Include="Scripts\lib\tweenjs.d.ts" />
+    <TypeScriptCompile Include="Scripts\objects\ball.ts" />
+    <TypeScriptCompile Include="Scripts\objects\block.ts" />
+    <TypeScriptCompile Include="Scripts\objects\gameObject.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs\createjs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\easeljs\easeljs.d.ts" />
@@ -100,8 +105,6 @@
   <ItemGroup>
     <Folder Include="assets\audio\" />
     <Folder Include="assets\fonts\" />
-    <Folder Include="assets\images\" />
-    <Folder Include="Scripts\objects\" />
     <Folder Include="Scripts\states\" />
   </ItemGroup>
   <PropertyGroup>

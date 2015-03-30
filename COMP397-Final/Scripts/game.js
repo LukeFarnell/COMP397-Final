@@ -9,6 +9,17 @@
 //Description:
 var canvas;
 var stage;
+var assetLoader;
+var manifest = [
+    { id: "ball", src: "assets/images/Ball.png" },
+    { id: "block", src: "assets/images/Block1.png" }
+];
+function preload() {
+    assetLoader = new createjs.LoadQueue(); // create a new preloader
+    assetLoader.installPlugin(createjs.Sound); // need plugin for sounds
+    assetLoader.on("complete", init, this); // when assets finished preloading - then init function
+    assetLoader.loadManifest(manifest);
+}
 function init() {
     canvas = document.getElementById("canvas");
     stage = new createjs.Stage(canvas);
