@@ -82,11 +82,6 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\game.ts" />
-    <TypeScriptCompile Include="Scripts\lib\createjs-lib.d.ts" />
-    <TypeScriptCompile Include="Scripts\lib\easeljs.d.ts" />
-    <TypeScriptCompile Include="Scripts\lib\preloadjs.d.ts" />
-    <TypeScriptCompile Include="Scripts\lib\soundjs.d.ts" />
-    <TypeScriptCompile Include="Scripts\lib\tweenjs.d.ts" />
     <TypeScriptCompile Include="Scripts\objects\ball.ts" />
     <TypeScriptCompile Include="Scripts\objects\block.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameObject.ts" />
@@ -96,8 +91,6 @@
     <TypeScriptCompile Include="Scripts\typings\preloadjs\preloadjs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\soundjs\soundjs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\tweenjs\tweenjs.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\webaudioapi\waa-20120802.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\webaudioapi\waa-nightly.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\webaudioapi\waa.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\webrtc\MediaStream.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\webrtc\RTCPeerConnection.d.ts" />
