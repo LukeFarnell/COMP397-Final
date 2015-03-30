@@ -85,6 +85,9 @@
     <TypeScriptCompile Include="Scripts\lib\preloadjs.d.ts" />
     <TypeScriptCompile Include="Scripts\lib\soundjs.d.ts" />
     <TypeScriptCompile Include="Scripts\lib\tweenjs.d.ts" />
+    <TypeScriptCompile Include="Scripts\objects\Bullet.ts" />
+    <TypeScriptCompile Include="Scripts\objects\Portal.ts" />
+    <TypeScriptCompile Include="Scripts\objects\Wall.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs\createjs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\easeljs\easeljs.d.ts" />
@@ -101,7 +104,6 @@
     <Folder Include="assets\audio\" />
     <Folder Include="assets\fonts\" />
     <Folder Include="assets\images\" />
-    <Folder Include="Scripts\objects\" />
     <Folder Include="Scripts\states\" />
   </ItemGroup>
   <PropertyGroup>
