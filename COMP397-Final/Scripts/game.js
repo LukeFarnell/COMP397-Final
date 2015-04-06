@@ -3,6 +3,7 @@
 /// <reference path="typings/tweenjs/tweenjs.d.ts" />
 /// <reference path="typings/soundjs/soundjs.d.ts" />
 /// <reference path="typings/preloadjs/preloadjs.d.ts" />
+/// <reference path="typings/ndgmr/ndgmr.collision.d.ts" />
 //Author: Louis Smith
 //File: game.ts
 //Last modified: 30/03/2015
@@ -10,6 +11,12 @@
 var canvas;
 var stage;
 var assetLoader;
+// Game Objects 
+var currentState;
+var currentStateFunction;
+var stateChanged = false;
+var menu;
+var debugGame;
 var manifest = [
     { id: "ball", src: "assets/images/Ball.png" },
     { id: "block", src: "assets/images/Block1.png" }
@@ -26,7 +33,31 @@ function init() {
     stage.enableMouseOver(20); // Enable mouse events
     createjs.Ticker.setFPS(60); // 60 frames per second
     createjs.Ticker.addEventListener("tick", gameLoop);
+    //currentState = constants.STATE_MENU;
+    currentState = constants.STATE_DEBUG;
+    changeState(currentState);
 }
 function gameLoop() {
+    if (stateChanged) {
+        changeState(currentState);
+        stateChanged = false;
+    }
+    else {
+        currentStateFunction.update();
+    }
+}
+function changeState(state) {
+    switch (state) {
+        case constants.STATE_MENU:
+            // instantiate menu screen
+            menu = new states.Menu();
+            currentStateFunction = menu;
+            break;
+        case constants.STATE_DEBUG:
+            // instantiate game over screen
+            debugGame = new states.Debug();
+            currentStateFunction = debugGame;
+            break;
+    }
 }
 //# sourceMappingURL=game.js.map

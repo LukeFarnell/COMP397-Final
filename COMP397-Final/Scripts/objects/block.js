@@ -11,8 +11,10 @@ var objects;
         //CONSTRUCTOR
         function Block(posX, posY, rot) {
             _super.call(this, "block");
-            this.x = 100;
-            this.y = 240;
+            this.x = posX;
+            this.y = posY;
+            this.rot = rot;
+            this.rotation = this.rot;
         }
         //PUBLIC METHODS
         Block.prototype.update = function () {
