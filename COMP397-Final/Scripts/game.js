@@ -19,7 +19,8 @@ var menu;
 var debugGame;
 var manifest = [
     { id: "ball", src: "assets/images/Ball.png" },
-    { id: "block", src: "assets/images/Block1.png" }
+    { id: "angle", src: "assets/images/Angle.png" },
+    { id: "block", src: "assets/images/Block2.png" }
 ];
 function preload() {
     assetLoader = new createjs.LoadQueue(); // create a new preloader

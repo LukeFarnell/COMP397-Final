@@ -1,15 +1,17 @@
-﻿module objects {
+﻿//File Source: block.ts
+//Author: Louis Smith
+//Last Modified by: Louis Smith
+//Last Modified Date: 11/04/15
+//Description:
+module objects {
     export class Block extends objects.GameObject {
-        public rot: number;
 
         //CONSTRUCTOR
-        constructor(posX: number, posY: number, rot: number) {
+        constructor(posX: number, posY: number) {
             super("block");
 
             this.x = posX;
             this.y = posY;
-            this.rot = rot;
-            this.rotation = this.rot;
 
         }
         //PUBLIC METHODS

@@ -4,17 +4,20 @@ var __extends = this.__extends || function (d, b) {
     __.prototype = b.prototype;
     d.prototype = new __();
 };
+//File Source: block.ts
+//Author: Louis Smith
+//Last Modified by: Louis Smith
+//Last Modified Date: 11/04/15
+//Description:
 var objects;
 (function (objects) {
     var Block = (function (_super) {
         __extends(Block, _super);
         //CONSTRUCTOR
-        function Block(posX, posY, rot) {
+        function Block(posX, posY) {
             _super.call(this, "block");
             this.x = posX;
             this.y = posY;
-            this.rot = rot;
-            this.rotation = this.rot;
         }
         //PUBLIC METHODS
         Block.prototype.update = function () {

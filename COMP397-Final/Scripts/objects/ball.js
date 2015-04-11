@@ -1,3 +1,8 @@
+//File Source: ball.ts
+//Author: Louis Smith
+//Last Modified by: Louis Smith
+//Last Modified Date: 11/04/15
+//Description:
 var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -22,76 +27,124 @@ var objects;
         Ball.prototype.update = function () {
             this.x += this._dx;
             this.y += this._dy;
+            this.xSpeed = this._dx;
+            this.ySpeed = this._dy;
         };
-        Ball.prototype.hit = function (angle) {
-            if (this._dy == 0) {
-                if (this._dx < 0) {
-                    switch (angle) {
-                        case 0:
-                            this._dx *= -1;
-                            break;
-                        case 90:
-                            this._dy *= -1;
-                            break;
-                        case 45:
+        Ball.prototype.blockHit = function () {
+            if (this._dx != 0) {
+                this._dx *= -1;
+            }
+            if (this._dy != 0) {
+                this._dy *= -1;
+            }
+            console.log("x: " + this._dx + " | y: " + this._dy);
+        };
+        Ball.prototype.angleHit = function (angle) {
+            switch (angle) {
+                case 0:
+                    if (this._dy == 0) {
+                        if (this._dx > 0) {
                             this._temp = -this._dx;
                             this._dx = this._dy;
                             this._dy = this._temp;
                             break;
-                    }
-                }
-                else {
-                    switch (angle) {
-                        case 0:
+                        }
+                        else if (this._dx < 0) {
                             this._dx *= -1;
                             break;
-                        case 90:
+                        }
+                    }
+                    if (this._dx == 0) {
+                        if (this._dy > 0) {
+                            this._temp = -this._dy;
+                            this._dy = this._dx;
+                            this._dx = this._temp;
+                            break;
+                        }
+                        else if (this._dy < 0) {
                             this._dy *= -1;
                             break;
-                        case 45:
+                        }
+                    }
+                case 1:
+                    if (this._dy == 0) {
+                        if (this._dx < 0) {
+                            this._temp = this._dx;
+                            this._dx = this._dy;
+                            this._dy = this._temp;
+                            break;
+                        }
+                        else if (this._dx > 0) {
+                            this._dx *= -1;
+                            break;
+                        }
+                    }
+                    if (this._dx == 0) {
+                        if (this._dy > 0) {
+                            this._temp = this._dy;
+                            this._dy = this._dx;
+                            this._dx = this._temp;
+                            break;
+                        }
+                        else if (this._dy < 0) {
+                            this._dy *= -1;
+                            break;
+                        }
+                    }
+                case 2:
+                    if (this._dy == 0) {
+                        if (this._dx < 0) {
                             this._temp = -this._dx;
                             this._dx = this._dy;
                             this._dy = this._temp;
                             break;
-                    }
-                }
-                this.xSpeed = this._dx;
-                this.ySpeed = this._dy;
-            }
-            else if (this._dx == 0) {
-                if (this._dy < 0) {
-                    switch (angle) {
-                        case 0:
+                        }
+                        else if (this._dx > 0) {
                             this._dx *= -1;
                             break;
-                        case 90:
-                            this._dy *= -1;
-                            break;
-                        case 45:
+                        }
+                    }
+                    if (this._dx == 0) {
+                        if (this._dy < 0) {
                             this._temp = -this._dy;
                             this._dy = this._dx;
                             this._dx = this._temp;
                             break;
-                    }
-                }
-                else {
-                    switch (angle) {
-                        case 0:
-                            this._dx *= -1;
-                            break;
-                        case 90:
+                        }
+                        else if (this._dy > 0) {
                             this._dy *= -1;
                             break;
-                        case 45:
-                            this._temp = -this._dy;
+                        }
+                    }
+                    break;
+                case 3:
+                    if (this._dy == 0) {
+                        if (this._dx > 0) {
+                            this._temp = this._dx;
+                            this._dx = this._dy;
+                            this._dy = this._temp;
+                            break;
+                        }
+                        else if (this._dx < 0) {
+                            this._dx *= -1;
+                            break;
+                        }
+                    }
+                    if (this._dx == 0) {
+                        if (this._dy < 0) {
+                            this._temp = this._dy;
                             this._dy = this._dx;
                             this._dx = this._temp;
                             break;
+                        }
+                        else if (this._dy > 0) {
+                            this._dy *= -1;
+                            break;
+                        }
                     }
-                }
-                this.xSpeed = this._dx;
-                this.ySpeed = this._dy;
+                    break;
             }
+            console.log("x: " + this._dx + " | y: " + this._dy);
         };
         Ball.prototype.reset = function () {
         };
