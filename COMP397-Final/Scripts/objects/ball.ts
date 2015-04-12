@@ -1,7 +1,7 @@
 ﻿//File Source: ball.ts
 //Author: Louis Smith
 //Last Modified by: Louis Smith
-//Last Modified Date: 11/04/15
+//Last Modified Date: 12/04/15
 //Description:
 
 module objects {
@@ -10,28 +10,38 @@ module objects {
         public xSpeed: number;
         public ySpeed: number;
 
+        private _fired: boolean = false;
         private _temp: number;
 
         //CONSTRUCTOR
-        constructor() {
+        constructor(cannon: objects.Cannon) {
             super("ball");
 
-            this.x = 200;
-            this.y = 240;
+            this.x = cannon.x;
+            this.y = cannon.y;
 
             this.xSpeed = 3;
             this.ySpeed = 0;
 
-            this._dx = this.xSpeed;
-            this._dy = this.ySpeed;
+            this._dx = 0;
+            this._dy = 0;
         }
         //PUBLIC METHODS
         public update() {
-            this.x += this._dx;
-            this.y += this._dy;
+            if (this._fired == true) {
+                this.x += this._dx;
+                this.y += this._dy;
 
-            this.xSpeed = this._dx;
-            this.ySpeed = this._dy;
+                this.xSpeed = this._dx;
+                this.ySpeed = this._dy;
+            }
+        }
+        public fire() {
+            if (this._fired == false) {
+                this._dx = this.xSpeed;
+                this._dy = this.ySpeed;
+                this._fired = true;
+            }
         }
         public blockHit() {
             if (this._dx != 0) {

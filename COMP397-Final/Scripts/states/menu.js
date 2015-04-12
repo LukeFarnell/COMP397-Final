@@ -7,20 +7,42 @@ var states;
 (function (states) {
     var Menu = (function () {
         function Menu() {
+            this.play = false;
+            this.inst = false;
             this.game = new createjs.Container();
             this.title = new objects.Wiggle("title", 0, 1, 0, 0.025);
             this.game.addChild(this.title);
             this.createdBy = new objects.Wiggle("by", -4, 0, -0.5, 0);
             this.game.addChild(this.createdBy);
             this.play_btn = new objects.Button("play", 140, 250);
+            this.play_btn.on("click", this.playGame, this);
             this.game.addChild(this.play_btn);
             this.inst_btn = new objects.Button("instruction", 200, 325);
+            this.inst_btn.on("click", this.instructionMenu, this);
             this.game.addChild(this.inst_btn);
             stage.addChild(this.game);
         }
+        Menu.prototype.playGame = function () {
+            this.play = true;
+        };
+        Menu.prototype.instructionMenu = function () {
+            this.inst = true;
+        };
         Menu.prototype.update = function () {
             this.title.update();
             this.createdBy.update();
+            if (this.play) {
+                this.game.removeAllChildren();
+                stage.removeChild(this.game);
+                currentState = constants.STATE_LEVEL1;
+                stateChanged = true;
+            }
+            if (this.inst) {
+                this.game.removeAllChildren();
+                stage.removeChild(this.game);
+                currentState = constants.STATE_MENU;
+                stateChanged = true;
+            }
             stage.update();
         };
         return Menu;

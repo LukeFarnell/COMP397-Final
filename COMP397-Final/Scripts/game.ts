@@ -23,6 +23,9 @@ var bg: objects.BG;
 
 var menu: states.Menu;
 var instruction: states.Instruction;
+var level1: states.Level1;
+var level2;
+var level3;
 var debugGame: states.Debug;
 
 var manifest = [
@@ -32,6 +35,8 @@ var manifest = [
     { id: "play", src: "assets/images/Play.png" },
     { id: "instruction", src: "assets/images/InstructionBtn.png" },
     { id: "ball", src: "assets/images/Ball.png" },
+    { id: "cannon", src: "assets/images/Cannon.png" },
+    { id: "goal", src: "assets/images/Goal.png" },
     { id: "angle", src: "assets/images/Angle.png" },
     { id: "block", src: "assets/images/Block2.png" }
 ];
@@ -82,6 +87,21 @@ function changeState(state: number): void {
             // instantiate instruction screen
             instruction = new states.Instruction();
             currentStateFunction = instruction;
+            break;
+        case constants.STATE_LEVEL1:
+            // instantiate instruction screen
+            level1 = new states.Level1();
+            currentStateFunction = level1;
+            break;
+        case constants.STATE_LEVEL2:
+            // instantiate instruction screen
+            level2 = new states.Level1();
+            currentStateFunction = level2;
+            break;
+        case constants.STATE_LEVEL3:
+            // instantiate instruction screen
+            level3 = new states.Level1();
+            currentStateFunction = level3;
             break;
         case constants.STATE_DEBUG:
             // instantiate game over screen

@@ -5,6 +5,8 @@
 //Description: All the global variables that will never change
 var constants;
 (function (constants) {
+    constants.TRIES = 3;
+    //STATES
     constants.STATE_MENU = 0;
     constants.STATE_GAMEOVER = 1;
     constants.STATE_INSTRUCTIONS = 2;

@@ -10,6 +10,8 @@ module states {
 
         constructor() {
             this.game = new createjs.Container();
+
+            stage.addChild(this.game);
         }
         public update() {
             stage.update();

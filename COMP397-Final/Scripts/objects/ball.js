@@ -1,7 +1,7 @@
 //File Source: ball.ts
 //Author: Louis Smith
 //Last Modified by: Louis Smith
-//Last Modified Date: 11/04/15
+//Last Modified Date: 12/04/15
 //Description:
 var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -14,21 +14,31 @@ var objects;
     var Ball = (function (_super) {
         __extends(Ball, _super);
         //CONSTRUCTOR
-        function Ball() {
+        function Ball(cannon) {
             _super.call(this, "ball");
-            this.x = 200;
-            this.y = 240;
+            this._fired = false;
+            this.x = cannon.x;
+            this.y = cannon.y;
             this.xSpeed = 3;
             this.ySpeed = 0;
-            this._dx = this.xSpeed;
-            this._dy = this.ySpeed;
+            this._dx = 0;
+            this._dy = 0;
         }
         //PUBLIC METHODS
         Ball.prototype.update = function () {
-            this.x += this._dx;
-            this.y += this._dy;
-            this.xSpeed = this._dx;
-            this.ySpeed = this._dy;
+            if (this._fired == true) {
+                this.x += this._dx;
+                this.y += this._dy;
+                this.xSpeed = this._dx;
+                this.ySpeed = this._dy;
+            }
+        };
+        Ball.prototype.fire = function () {
+            if (this._fired == false) {
+                this._dx = this.xSpeed;
+                this._dy = this.ySpeed;
+                this._fired = true;
+            }
         };
         Ball.prototype.blockHit = function () {
             if (this._dx != 0) {

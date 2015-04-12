@@ -72,7 +72,9 @@
     <Content Include="assets\images\Ball.png" />
     <Content Include="assets\images\Block1.png" />
     <Content Include="assets\images\Block2.png" />
+    <Content Include="assets\images\Cannon.png" />
     <Content Include="assets\images\CreatedBy.png" />
+    <Content Include="assets\images\Goal.png" />
     <Content Include="assets\images\InstructionBtn.png" />
     <Content Include="assets\images\Play.png" />
     <Content Include="assets\images\Title.png" />
@@ -96,10 +98,14 @@
     <TypeScriptCompile Include="Scripts\objects\ball.ts" />
     <TypeScriptCompile Include="Scripts\objects\block.ts" />
     <TypeScriptCompile Include="Scripts\objects\button.ts" />
+    <TypeScriptCompile Include="Scripts\objects\cannon.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameObject.ts" />
+    <TypeScriptCompile Include="Scripts\objects\goal.ts" />
     <TypeScriptCompile Include="Scripts\objects\wiggletext.ts" />
     <TypeScriptCompile Include="Scripts\states\gametest.ts" />
     <TypeScriptCompile Include="Scripts\states\instructions.ts" />
+    <TypeScriptCompile Include="Scripts\states\level1.ts" />
+    <TypeScriptCompile Include="Scripts\states\leveltemplate.ts" />
     <TypeScriptCompile Include="Scripts\states\menu.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs\createjs.d.ts" />

@@ -1,56 +1,33 @@
-﻿//File Source: gametest.ts
-//Author: Louis Smith
-//Last Modified by: Louis Smith
-//Last Modified Date: 11/04/15
-//Description: This was used for testing all the game mechanics
+﻿//File Source: leveltemplate.ts
+//Author: Luke Farnell
+//Last Modified by: Luke Farnell
+//Last Modified Date: 12/04/15
+//Description: This is used for ease of making more levels
 
 module states {
-    export class Debug {
+    export class LevelTemplate {
         public game: createjs.Container;
 
+        public cannon: objects.Cannon;
         public bullet: objects.Ball;
         public wall: objects.Block[];
         public corner: objects.Angle[];
-
-        public cannon: objects.Cannon;
+        public goal: objects.Goal;
 
         public c1: objects.Angle;
-        public c2: objects.Angle;
-        public c3: objects.Angle;
-        public c4: objects.Angle;
 
         constructor() {
             this.game = new createjs.Container();
 
             this.wall = [];
-            //this.wall[0] = new objects.Block(100, 100);
-            //this.wall[1] = new objects.Block(500, 100);
 
-            for (var w = 0; w < this.wall.length; w++) {
-                //this.game.addChild(this.wall[w]);
-            }
+            this.corner = [];
 
             this.c1 = new objects.Angle(100, 250, 1);
             this.c1.on("click", this.clicked1, this);
             this.game.addChild(this.c1);
 
-            this.c2 = new objects.Angle(500, 250, 0);
-            this.c2.on("click", this.clicked2, this);
-            this.game.addChild(this.c2);
-
-            this.c3 = new objects.Angle(500, 100, 3);
-            this.c3.on("click", this.clicked3, this);
-            this.game.addChild(this.c3);
-
-            this.c4 = new objects.Angle(100, 100, 2);
-            this.c4.on("click", this.clicked4, this);
-            this.game.addChild(this.c4);
-
-            this.corner = [];
-            this.corner[0] = this.c1;
-            this.corner[1] = this.c2;
-            this.corner[2] = this.c3;
-            this.corner[3] = this.c4;
+            this.goal = new objects.Goal(0, 0);
 
             this.cannon = new objects.Cannon(400, 100);
             this.cannon.on("click", this.fire, this);
@@ -62,25 +39,14 @@ module states {
 
             stage.addChild(this.game);
         }
+        //CLICK METHODS===================================
         public fire() {
             this.bullet.fire();
         }
         public clicked1() {
             this.c1.clicked = true;
         }
-
-        public clicked2() {
-            this.c2.clicked = true;
-        }
-
-        public clicked3() {
-            this.c3.clicked = true;
-        }
-
-        public clicked4() {
-            this.c4.clicked = true;
-        }
-
+        //CHECK COLLISION==================================
         public checkWallCollision() {
             for (var w = 0; w < this.wall.length; w++) {
                 var wall = this.wall[w];
@@ -105,18 +71,12 @@ module states {
             this.bullet.update();
 
             this.c1.update();
-            this.c2.update();
-            this.c3.update();
-            this.c4.update();
-
             this.corner[0] = this.c1;
-            this.corner[1] = this.c2;
-            this.corner[2] = this.c3;
-            this.corner[3] = this.c4;
 
             this.checkWallCollision();
             this.checkCornerCollision();
+
             stage.update();
         }
     }
-}  
+}    

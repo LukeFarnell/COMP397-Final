@@ -13,6 +13,9 @@ module states {
         public play_btn: objects.Button;
         public inst_btn: objects.Button;
 
+        public play: boolean = false;
+        public inst: boolean = false;
+
         constructor() {
             this.game = new createjs.Container();
 
@@ -23,16 +26,40 @@ module states {
             this.game.addChild(this.createdBy);
 
             this.play_btn = new objects.Button("play", 140, 250);
+            this.play_btn.on("click", this.playGame, this);
             this.game.addChild(this.play_btn);
 
             this.inst_btn = new objects.Button("instruction", 200, 325);
+            this.inst_btn.on("click", this.instructionMenu, this);
             this.game.addChild(this.inst_btn);
 
             stage.addChild(this.game);
         }
+
+        public playGame() {
+            this.play = true;
+        }
+
+        public instructionMenu() {
+            this.inst = true;
+        }
+
         public update() {
             this.title.update();
             this.createdBy.update();
+
+            if (this.play) {
+                this.game.removeAllChildren();
+                stage.removeChild(this.game);
+                currentState = constants.STATE_LEVEL1;
+                stateChanged = true;
+            }
+            if (this.inst) {
+                this.game.removeAllChildren();
+                stage.removeChild(this.game);
+                currentState = constants.STATE_MENU;
+                stateChanged = true;
+            }
 
             stage.update();
         }

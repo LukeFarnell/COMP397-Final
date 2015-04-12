@@ -28,10 +28,16 @@ var states;
             this.corner[1] = this.c2;
             this.corner[2] = this.c3;
             this.corner[3] = this.c4;
-            this.bullet = new objects.Ball();
+            this.cannon = new objects.Cannon(400, 100);
+            this.cannon.on("click", this.fire, this);
+            this.bullet = new objects.Ball(this.cannon);
             this.game.addChild(this.bullet);
+            this.game.addChild(this.cannon);
             stage.addChild(this.game);
         }
+        Debug.prototype.fire = function () {
+            this.bullet.fire();
+        };
         Debug.prototype.clicked1 = function () {
             this.c1.clicked = true;
         };

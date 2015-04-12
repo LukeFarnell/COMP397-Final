@@ -8,6 +8,7 @@ var states;
     var Instruction = (function () {
         function Instruction() {
             this.game = new createjs.Container();
+            stage.addChild(this.game);
         }
         Instruction.prototype.update = function () {
             stage.update();

@@ -5,6 +5,9 @@
 //Description: All the global variables that will never change
 
 module constants {
+    export var TRIES: number = 3;
+
+    //STATES
     export var STATE_MENU: number = 0;
     export var STATE_GAMEOVER: number = 1;
     export var STATE_INSTRUCTIONS: number = 2;
