@@ -68,9 +68,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\images\Angle.png" />
+    <Content Include="assets\images\Background.png" />
     <Content Include="assets\images\Ball.png" />
     <Content Include="assets\images\Block1.png" />
     <Content Include="assets\images\Block2.png" />
+    <Content Include="assets\images\CreatedBy.png" />
+    <Content Include="assets\images\InstructionBtn.png" />
+    <Content Include="assets\images\Play.png" />
+    <Content Include="assets\images\Title.png" />
     <Content Include="css\game.css" />
     <Content Include="index.html" />
     <Content Include="Scripts\lib\easeljs-0.8.0.min.js" />
@@ -87,10 +92,14 @@
     <TypeScriptCompile Include="Scripts\constants.ts" />
     <TypeScriptCompile Include="Scripts\game.ts" />
     <TypeScriptCompile Include="Scripts\objects\angle.ts" />
+    <TypeScriptCompile Include="Scripts\objects\background.ts" />
     <TypeScriptCompile Include="Scripts\objects\ball.ts" />
     <TypeScriptCompile Include="Scripts\objects\block.ts" />
+    <TypeScriptCompile Include="Scripts\objects\button.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameObject.ts" />
+    <TypeScriptCompile Include="Scripts\objects\wiggletext.ts" />
     <TypeScriptCompile Include="Scripts\states\gametest.ts" />
+    <TypeScriptCompile Include="Scripts\states\instructions.ts" />
     <TypeScriptCompile Include="Scripts\states\menu.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs\createjs.d.ts" />

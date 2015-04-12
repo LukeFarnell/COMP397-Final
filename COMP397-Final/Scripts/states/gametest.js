@@ -1,3 +1,8 @@
+//File Source: gametest.ts
+//Author: Louis Smith
+//Last Modified by: Louis Smith
+//Last Modified Date: 11/04/15
+//Description: This was used for testing all the game mechanics
 var states;
 (function (states) {
     var Debug = (function () {

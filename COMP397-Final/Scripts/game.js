@@ -15,9 +15,16 @@ var assetLoader;
 var currentState;
 var currentStateFunction;
 var stateChanged = false;
+var bg;
 var menu;
+var instruction;
 var debugGame;
 var manifest = [
+    { id: "bg", src: "assets/images/Background.png" },
+    { id: "title", src: "assets/images/Title.png" },
+    { id: "by", src: "assets/images/CreatedBy.png" },
+    { id: "play", src: "assets/images/Play.png" },
+    { id: "instruction", src: "assets/images/InstructionBtn.png" },
     { id: "ball", src: "assets/images/Ball.png" },
     { id: "angle", src: "assets/images/Angle.png" },
     { id: "block", src: "assets/images/Block2.png" }
@@ -34,8 +41,11 @@ function init() {
     stage.enableMouseOver(20); // Enable mouse events
     createjs.Ticker.setFPS(60); // 60 frames per second
     createjs.Ticker.addEventListener("tick", gameLoop);
-    //currentState = constants.STATE_MENU;
-    currentState = constants.STATE_DEBUG;
+    //Background Objects
+    bg = new objects.BG();
+    stage.addChild(bg);
+    currentState = constants.STATE_MENU;
+    //currentState = constants.STATE_DEBUG;
     changeState(currentState);
 }
 function gameLoop() {
@@ -53,6 +63,11 @@ function changeState(state) {
             // instantiate menu screen
             menu = new states.Menu();
             currentStateFunction = menu;
+            break;
+        case constants.STATE_INSTRUCTIONS:
+            // instantiate instruction screen
+            instruction = new states.Instruction();
+            currentStateFunction = instruction;
             break;
         case constants.STATE_DEBUG:
             // instantiate game over screen
