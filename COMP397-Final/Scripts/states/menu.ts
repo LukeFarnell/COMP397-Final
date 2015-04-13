@@ -57,7 +57,7 @@ module states {
             if (this.inst) {
                 this.game.removeAllChildren();
                 stage.removeChild(this.game);
-                currentState = constants.STATE_GAMEOVER;
+                currentState = constants.STATE_INSTRUCTIONS;
                 stateChanged = true;
             }
 

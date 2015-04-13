@@ -48,7 +48,7 @@ module states {
             this.c4.on("click", this.clicked4, this);
             this.game.addChild(this.c4);
             //Danger Wall
-            this.danger = new objects.Danger(500, 150, 1, false);
+            this.danger = new objects.Danger(500, 150, 1, 0, false);
             this.game.addChild(this.danger);
             //Goal
             this.goal = new objects.Goal(500, 80);
@@ -139,7 +139,7 @@ module states {
             if (this.nLevel) {
                 this.game.removeAllChildren();
                 stage.removeChild(this.game);
-                currentState = constants.STATE_MENU;
+                currentState = constants.STATE_LEVEL3;
                 stateChanged = true;
             }
 

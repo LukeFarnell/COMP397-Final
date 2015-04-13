@@ -14,20 +14,44 @@ var objects;
     var Danger = (function (_super) {
         __extends(Danger, _super);
         //CONSTRUCTOR
-        function Danger(posX, posY, rot, move) {
+        function Danger(posX, posY, rot, scale, move) {
             _super.call(this, "danger");
+            this._change = false;
             this.x = posX;
             this.y = posY;
             this.rot = rot;
             this.rotation = this.rot * 90;
+            this.sY = scale;
+            this.scaleY += scale;
             this.move = move;
+            this._speed = 1.6;
         }
         //PUBLIC METHODS
         Danger.prototype.update = function () {
             if (this.move) {
                 if (this.rot % 2 == 0) {
+                    if (this._change == true) {
+                        this.y += this._speed;
+                        if (this.y >= 480 - -(100 * this.sY))
+                            this._change = false;
+                    }
+                    else {
+                        this.y -= this._speed;
+                        if (this.y <= -100 * this.sY)
+                            this._change = true;
+                    }
                 }
                 else {
+                    if (this._change == true) {
+                        this.x -= this._speed;
+                        if (this.x <= 100)
+                            this._change = false;
+                    }
+                    else {
+                        this.x += this._speed;
+                        if (this.x >= 540)
+                            this._change = true;
+                    }
                 }
             }
         };

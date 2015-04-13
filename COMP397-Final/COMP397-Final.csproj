@@ -77,6 +77,15 @@
     <Content Include="assets\images\GameOver.png" />
     <Content Include="assets\images\Goal.png" />
     <Content Include="assets\images\InstructionBtn.png" />
+    <Content Include="assets\images\InstructionScreen\iBall.png" />
+    <Content Include="assets\images\InstructionScreen\iCannon.png" />
+    <Content Include="assets\images\InstructionScreen\iCheck.png" />
+    <Content Include="assets\images\InstructionScreen\iGoal.png" />
+    <Content Include="assets\images\InstructionScreen\iNope.png" />
+    <Content Include="assets\images\InstructionScreen\iTitle.png" />
+    <Content Include="assets\images\InstructionScreen\iTriangle.png" />
+    <Content Include="assets\images\InstructionScreen\iTxt.png" />
+    <Content Include="assets\images\InstructionScreen\iWall.png" />
     <Content Include="assets\images\Menu.png" />
     <Content Include="assets\images\Play.png" />
     <Content Include="assets\images\SadFace.png" />
