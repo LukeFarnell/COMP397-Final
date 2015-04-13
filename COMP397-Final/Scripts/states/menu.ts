@@ -19,10 +19,10 @@ module states {
         constructor() {
             this.game = new createjs.Container();
 
-            this.title = new objects.Wiggle("title", 0, 1, 0, 0.025);
+            this.title = new objects.Wiggle("title",320, 240, 0, 1, 0, 0.025);
             this.game.addChild(this.title);
 
-            this.createdBy = new objects.Wiggle("by", -4, 0, -0.5, 0);
+            this.createdBy = new objects.Wiggle("by", 320, 240, -4, 0, -0.5, 0);
             this.game.addChild(this.createdBy);
 
             this.play_btn = new objects.Button("play", 140, 250);
@@ -57,7 +57,7 @@ module states {
             if (this.inst) {
                 this.game.removeAllChildren();
                 stage.removeChild(this.game);
-                currentState = constants.STATE_MENU;
+                currentState = constants.STATE_GAMEOVER;
                 stateChanged = true;
             }
 

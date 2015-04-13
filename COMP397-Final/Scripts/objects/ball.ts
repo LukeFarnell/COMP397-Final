@@ -10,8 +10,12 @@ module objects {
         public xSpeed: number;
         public ySpeed: number;
 
+        private _speed: number;
+
         private _fired: boolean = false;
         private _temp: number;
+        private _resetX: number;
+        private _resetY: number;
 
         //CONSTRUCTOR
         constructor(cannon: objects.Cannon) {
@@ -20,7 +24,12 @@ module objects {
             this.x = cannon.x;
             this.y = cannon.y;
 
-            this.xSpeed = 3;
+            this._resetX = this.x;
+            this._resetY = this.y;
+
+            this._speed = 4;
+
+            this.xSpeed = this._speed;
             this.ySpeed = 0;
 
             this._dx = 0;
@@ -34,6 +43,12 @@ module objects {
 
                 this.xSpeed = this._dx;
                 this.ySpeed = this._dy;
+            }
+            if (this.x < 0 - this.width || this.x > 640 + this.width) {
+                this.reset();
+            }
+            if (this.y < 0 - this.height || this.y > 480 + this.height) {
+                this.reset();
             }
         }
         public fire() {
@@ -160,7 +175,11 @@ module objects {
             console.log("x: " + this._dx + " | y: " + this._dy);
         }
         public reset() {
-
+            this._fired = false;
+            this.x = this._resetX;
+            this.y = this._resetY;
+            this.xSpeed = this._speed;
+            this.ySpeed = 0;
         }
     }
 } 

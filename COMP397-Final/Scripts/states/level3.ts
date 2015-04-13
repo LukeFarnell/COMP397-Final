@@ -1,11 +1,11 @@
-﻿//File Source: level1.ts
+﻿//File Source: level3.ts
 //Author: Luke Farnell
 //Last Modified by: Luke Farnell
 //Last Modified Date: 12/04/15
-//Description: This is used for ease of making more levels
+//Description: The third level of the game
 
 module states {
-    export class Level1 {
+    export class Level3 {
         public game: createjs.Container;
 
         public cannon: objects.Cannon;
@@ -16,32 +16,20 @@ module states {
 
         public c1: objects.Angle;
 
-        public next: objects.Button;
-        public nLevel: boolean = false;
-
         constructor() {
             this.game = new createjs.Container();
 
-            this.next = new objects.Button("play", 320, 240);
-            this.next.on("click", this.nextLevel, this);
-
             this.wall = [];
-            this.wall[0] = new objects.Block(320, 400);
-
-            for (var w = 0; w < this.wall.length; w++) {
-                this.game.addChild(this.wall[w]);
-            }
 
             this.corner = [];
 
-            this.c1 = new objects.Angle(320, 100, 3);
+            this.c1 = new objects.Angle(100, 250, 1);
             this.c1.on("click", this.clicked1, this);
             this.game.addChild(this.c1);
 
-            this.goal = new objects.Goal(560, 140);
-            this.game.addChild(this.goal);
+            this.goal = new objects.Goal(0, 0);
 
-            this.cannon = new objects.Cannon(100, 140);
+            this.cannon = new objects.Cannon(400, 100);
             this.cannon.on("click", this.fire, this);
 
             this.bullet = new objects.Ball(this.cannon);
@@ -57,9 +45,6 @@ module states {
         }
         public clicked1() {
             this.c1.clicked = true;
-        }
-        public nextLevel() {
-            this.nLevel = true;
         }
         //CHECK COLLISION==================================
         public checkWallCollision() {
@@ -81,22 +66,6 @@ module states {
                 }
             }
         }
-        // DISTANCE CHECKING METHOD
-        public distance(p1: createjs.Point, p2: createjs.Point): number {
-            return Math.floor(Math.sqrt(Math.pow((p2.x - p1.x), 2) + Math.pow((p2.y - p1.y), 2)));
-        }
-        public checkGoalCollision() {
-            var ballPosition: createjs.Point = new createjs.Point(this.bullet.x, this.bullet.y);
-            var goalPosition: createjs.Point = new createjs.Point(this.goal.x, this.goal.y);
-            var theDistance = this.distance(ballPosition, goalPosition);
-            if (theDistance < (10)){
-                if (this.goal.isColliding !== true) {
-                    this.game.removeChild(this.bullet);
-                    this.game.addChild(this.next);
-                    console.log("Winner!");
-                }
-            }
-        }
 
         public update() {
             this.bullet.update();
@@ -106,16 +75,8 @@ module states {
 
             this.checkWallCollision();
             this.checkCornerCollision();
-            this.checkGoalCollision();
-
-            if (this.nLevel) {
-                this.game.removeAllChildren();
-                stage.removeChild(this.game);
-                currentState = constants.STATE_LEVEL2;
-                stateChanged = true;
-            }
 
             stage.update();
         }
     }
-}    
+}     

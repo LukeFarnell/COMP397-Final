@@ -18,6 +18,7 @@ var stateChanged = false;
 var bg;
 var menu;
 var instruction;
+var gameover;
 var level1;
 var level2;
 var level3;
@@ -28,10 +29,15 @@ var manifest = [
     { id: "by", src: "assets/images/CreatedBy.png" },
     { id: "play", src: "assets/images/Play.png" },
     { id: "instruction", src: "assets/images/InstructionBtn.png" },
+    { id: "gameover", src: "assets/images/GameOver.png" },
+    { id: "sadface", src: "assets/images/SadFace.png" },
+    { id: "menu", src: "assets/images/Menu.png" },
+    { id: "tryagain", src: "assets/images/TryAgain.png" },
     { id: "ball", src: "assets/images/Ball.png" },
     { id: "cannon", src: "assets/images/Cannon.png" },
     { id: "goal", src: "assets/images/Goal.png" },
     { id: "angle", src: "assets/images/Angle.png" },
+    { id: "danger", src: "assets/images/Block1.png" },
     { id: "block", src: "assets/images/Block2.png" }
 ];
 function preload() {
@@ -74,23 +80,28 @@ function changeState(state) {
             instruction = new states.Instruction();
             currentStateFunction = instruction;
             break;
+        case constants.STATE_GAMEOVER:
+            // instantiate game over screen
+            gameover = new states.GameOver();
+            currentStateFunction = gameover;
+            break;
         case constants.STATE_LEVEL1:
-            // instantiate instruction screen
+            // instantiate level 1 screen
             level1 = new states.Level1();
             currentStateFunction = level1;
             break;
         case constants.STATE_LEVEL2:
-            // instantiate instruction screen
-            level2 = new states.Level1();
+            // instantiate level 2 screen
+            level2 = new states.Level2();
             currentStateFunction = level2;
             break;
         case constants.STATE_LEVEL3:
-            // instantiate instruction screen
-            level3 = new states.Level1();
+            // instantiate level 3 screen
+            level3 = new states.Level3();
             currentStateFunction = level3;
             break;
         case constants.STATE_DEBUG:
-            // instantiate game over screen
+            // instantiate debug screen
             debugGame = new states.Debug();
             currentStateFunction = debugGame;
             break;

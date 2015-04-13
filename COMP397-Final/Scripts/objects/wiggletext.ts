@@ -14,11 +14,11 @@ module objects {
         private _counter: number;
         private _moved: boolean;
 
-        constructor(name: string, mX: number, mY: number, mR: number, mS: number) {
+        constructor(name: string,posX: number, posY: number, mX: number, mY: number, mR: number, mS: number) {
             super(name);
 
-            this.x = this.width / 2;
-            this.y = this.height / 2;
+            this.x = posX;
+            this.y = posY;
 
             this.moveX = mX;
             this.moveY = mY;

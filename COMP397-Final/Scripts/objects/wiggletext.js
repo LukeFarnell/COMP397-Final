@@ -13,10 +13,10 @@ var objects;
 (function (objects) {
     var Wiggle = (function (_super) {
         __extends(Wiggle, _super);
-        function Wiggle(name, mX, mY, mR, mS) {
+        function Wiggle(name, posX, posY, mX, mY, mR, mS) {
             _super.call(this, name);
-            this.x = this.width / 2;
-            this.y = this.height / 2;
+            this.x = posX;
+            this.y = posY;
             this.moveX = mX;
             this.moveY = mY;
             this.moveR = mR;
