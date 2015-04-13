@@ -7,6 +7,7 @@ module objects {
     export class Angle extends objects.GameObject {
         public rot: number;
         public clicked: boolean;
+        public turnable: boolean;
 
         //CONSTRUCTOR
         constructor(posX: number, posY: number, rot: number) {
@@ -19,18 +20,22 @@ module objects {
             this.rotation = this.rot * 90;
 
             this.clicked = false;
+            this.turnable = true;
             console.log("Turn: " + this.clicked);
         }
         //PUBLIC METHODS
         public update() {
             if (this.clicked === true) {
-                this.rot += 1;
-                if (this.rot == 4)
-                    this.rot = 0;
-                this.rotation = this.rot * 90;
-                this.clicked = false;
-                console.log("Turned");
+                if (this.turnable == true) {
+                    this.rot += 1;
+                    if (this.rot == 4)
+                        this.rot = 0;
+                    this.rotation = this.rot * 90;
+                    this.clicked = false;
+                    console.log("Turned");
+                }
             }
+            this.turnable = true;
         }
     }
 }  
