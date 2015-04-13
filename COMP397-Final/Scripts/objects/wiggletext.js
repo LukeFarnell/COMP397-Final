@@ -27,7 +27,7 @@ var objects;
         //GAME METHODS
         Wiggle.prototype.update = function () {
             this._counter += createjs.Ticker.getMeasuredFPS();
-            if (this._counter >= 700) {
+            if (this._counter >= 1000) {
                 if (this._moved == false) {
                     this.x += this.moveX;
                     this.y += this.moveY;
