@@ -48,12 +48,12 @@ var manifest = [
     { id: "sadface", src: "assets/images/SadFace.png" },
     { id: "menu", src: "assets/images/Menu.png" },
     { id: "tryagain", src: "assets/images/TryAgain.png" },
-    { id: "ball", src: "assets/images/Ball.png" },
-    { id: "cannon", src: "assets/images/Cannon.png" },
+    { id: "ball", src: "assets/images/Ball2.png" },
+    { id: "cannon", src: "assets/images/Cannon2.png" },
     { id: "goal", src: "assets/images/Goal.png" },
-    { id: "angle", src: "assets/images/Angle.png" },
-    { id: "danger", src: "assets/images/Block1.png" },
-    { id: "block", src: "assets/images/Block2.png" }
+    { id: "angle", src: "assets/images/Angle2.png" },
+    { id: "danger", src: "assets/images/Block3.png" },
+    { id: "block", src: "assets/images/Block4.png" }
 ];
 
 function preload() {

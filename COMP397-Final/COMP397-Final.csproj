@@ -68,11 +68,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\images\Angle.png" />
+    <Content Include="assets\images\Angle2.png" />
     <Content Include="assets\images\Background.png" />
     <Content Include="assets\images\Ball.png" />
+    <Content Include="assets\images\Ball2.png" />
     <Content Include="assets\images\Block1.png" />
     <Content Include="assets\images\Block2.png" />
+    <Content Include="assets\images\Block3.png" />
+    <Content Include="assets\images\Block4.png" />
     <Content Include="assets\images\Cannon.png" />
+    <Content Include="assets\images\Cannon2.png" />
     <Content Include="assets\images\CreatedBy.png" />
     <Content Include="assets\images\GameOver.png" />
     <Content Include="assets\images\Goal.png" />
