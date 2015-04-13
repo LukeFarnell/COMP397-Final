@@ -171,6 +171,13 @@ var objects;
             this.y = this._resetY;
             this.xSpeed = this._speed;
             this.ySpeed = 0;
+            tries--;
+            fails++;
+        };
+        Ball.prototype.stop = function () {
+            this._fired = false;
+            this.xSpeed = 0;
+            this.ySpeed = 0;
         };
         return Ball;
     })(objects.GameObject);

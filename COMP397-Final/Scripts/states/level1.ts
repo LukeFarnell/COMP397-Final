@@ -7,6 +7,8 @@
 module states {
     export class Level1 {
         public game: createjs.Container;
+        public levelNum: createjs.Text;
+        public tries: createjs.Text;
 
         public cannon: objects.Cannon;
         public bullet: objects.Ball;
@@ -21,6 +23,9 @@ module states {
 
         constructor() {
             this.game = new createjs.Container();
+
+            this.levelNum = new createjs.Text("Level 1", "30px Segoe Print", "#000000");
+            this.game.addChild(this.levelNum);
 
             this.next = new objects.Button("play", 320, 240);
             this.next.on("click", this.nextLevel, this);
@@ -48,6 +53,11 @@ module states {
             this.game.addChild(this.bullet);
 
             this.game.addChild(this.cannon);
+
+            this.tries = new createjs.Text("Tries: " + tries, "30px Segoe Print", "#000000");
+            this.tries.x = 50;
+            this.tries.y = 70;
+            this.game.addChild(this.tries);
 
             stage.addChild(this.game);
         }
@@ -92,6 +102,7 @@ module states {
             if (theDistance < (10)){
                 if (this.goal.isColliding !== true) {
                     this.game.removeChild(this.bullet);
+                    this.bullet.stop();
                     this.game.addChild(this.next);
                     console.log("Winner!");
                 }
@@ -99,6 +110,8 @@ module states {
         }
 
         public update() {
+            this.tries.text = "Tries: " + tries;
+
             this.bullet.update();
 
             this.c1.update();
@@ -109,9 +122,17 @@ module states {
             this.checkGoalCollision();
 
             if (this.nLevel) {
+                currentScore += tries * 10;
                 this.game.removeAllChildren();
                 stage.removeChild(this.game);
                 currentState = constants.STATE_LEVEL2;
+                stateChanged = true;
+            }
+
+            if (tries == 0) {
+                this.game.removeAllChildren();
+                stage.removeChild(this.game);
+                currentState = constants.STATE_GAMEOVER;
                 stateChanged = true;
             }
 

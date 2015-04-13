@@ -9,6 +9,8 @@ var states;
         function Level2() {
             this.nLevel = false;
             this.game = new createjs.Container();
+            this.levelNum = new createjs.Text("Level 2", "30px Segoe Print", "#000000");
+            this.game.addChild(this.levelNum);
             this.next = new objects.Button("play", 320, 240);
             this.next.on("click", this.nextLevel, this);
             //Corners
@@ -38,6 +40,10 @@ var states;
             this.bullet = new objects.Ball(this.cannon);
             this.game.addChild(this.bullet);
             this.game.addChild(this.cannon);
+            this.tries = new createjs.Text("Tries: " + tries, "30px Segoe Print", "#000000");
+            this.tries.x = 50;
+            this.tries.y = 170;
+            this.game.addChild(this.tries);
             stage.addChild(this.game);
         }
         //CLICK METHODS===================================
@@ -88,12 +94,14 @@ var states;
             if (theDistance < (10)) {
                 if (this.goal.isColliding !== true) {
                     this.game.removeChild(this.bullet);
+                    this.bullet.stop();
                     this.game.addChild(this.next);
                     console.log("Winner!");
                 }
             }
         };
         Level2.prototype.update = function () {
+            this.tries.text = "Tries: " + tries;
             this.bullet.update();
             this.danger.update();
             this.c1.update();
@@ -108,9 +116,16 @@ var states;
             this.checkCornerCollision();
             this.checkGoalCollision();
             if (this.nLevel) {
+                currentScore += tries * 10;
                 this.game.removeAllChildren();
                 stage.removeChild(this.game);
                 currentState = constants.STATE_LEVEL3;
+                stateChanged = true;
+            }
+            if (tries == 0) {
+                this.game.removeAllChildren();
+                stage.removeChild(this.game);
+                currentState = constants.STATE_GAMEOVER;
                 stateChanged = true;
             }
             stage.update();

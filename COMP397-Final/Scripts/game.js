@@ -23,6 +23,10 @@ var level1;
 var level2;
 var level3;
 var debugGame;
+var tries;
+var fails;
+var currentScore;
+var bestScore;
 var manifest = [
     { id: "bg", src: "assets/images/Background.png" },
     { id: "title", src: "assets/images/Title.png" },
@@ -61,6 +65,10 @@ function init() {
     stage.enableMouseOver(20); // Enable mouse events
     createjs.Ticker.setFPS(60); // 60 frames per second
     createjs.Ticker.addEventListener("tick", gameLoop);
+    tries = constants.TRIES;
+    fails = 0;
+    currentScore = 0;
+    bestScore = 0;
     //Background Objects
     bg = new objects.BG();
     stage.addChild(bg);
@@ -83,6 +91,8 @@ function changeState(state) {
             // instantiate menu screen
             menu = new states.Menu();
             currentStateFunction = menu;
+            tries = constants.TRIES;
+            fails = 0;
             break;
         case constants.STATE_INSTRUCTIONS:
             // instantiate instruction screen
@@ -98,16 +108,20 @@ function changeState(state) {
             // instantiate level 1 screen
             level1 = new states.Level1();
             currentStateFunction = level1;
+            tries = constants.TRIES;
+            currentScore = 0;
             break;
         case constants.STATE_LEVEL2:
             // instantiate level 2 screen
             level2 = new states.Level2();
             currentStateFunction = level2;
+            tries = constants.TRIES;
             break;
         case constants.STATE_LEVEL3:
             // instantiate level 3 screen
             level3 = new states.Level3();
             currentStateFunction = level3;
+            tries = constants.TRIES;
             break;
         case constants.STATE_DEBUG:
             // instantiate debug screen

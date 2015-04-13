@@ -180,6 +180,13 @@ module objects {
             this.y = this._resetY;
             this.xSpeed = this._speed;
             this.ySpeed = 0;
+            tries--;
+            fails++;
+        }
+        public stop() {
+            this._fired = false;
+            this.xSpeed = 0;
+            this.ySpeed = 0;
         }
     }
 } 
