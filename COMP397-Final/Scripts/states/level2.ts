@@ -114,6 +114,14 @@ module states {
                 }
             }
         }
+        public checkCornerDistance() {
+            for (var c = 0; c < this.corner.length; c++) {
+                var collision = ndgmr.checkRectCollision(this.corner[c], this.bullet);
+                if (collision) {
+                    this.corner[c].turnable = false;
+                }
+            }
+        }
         // DISTANCE CHECKING METHOD
         public distance(p1: createjs.Point, p2: createjs.Point): number {
             return Math.floor(Math.sqrt(Math.pow((p2.x - p1.x), 2) + Math.pow((p2.y - p1.y), 2)));
@@ -151,6 +159,7 @@ module states {
 
             this.checkWallCollision();
             this.checkCornerCollision();
+            this.checkCornerDistance();
             this.checkGoalCollision();
 
             if (this.nLevel) {
