@@ -58,7 +58,11 @@ var manifest = [
     { id: "goal", src: "assets/images/Goal.png" },
     { id: "angle", src: "assets/images/Angle2.png" },
     { id: "danger", src: "assets/images/Block3.png" },
-    { id: "block", src: "assets/images/Block4.png" }
+    { id: "block", src: "assets/images/Block4.png" },
+    { id: "bounce", src: "assets/audio/Bounce.wav" },
+    { id: "hit", src: "assets/audio/Hit.wav" },
+    { id: "music", src: "assets/audio/Bacon Pancakes.wav" }
+
 ];
 
 function preload() {
@@ -81,6 +85,7 @@ function init() {
     currentScore = 0;
     bestScore = 0;
     
+    createjs.Sound.play("music", { loop: "-1" });
 
     //Background Objects
     bg = new objects.BG();

@@ -95,6 +95,7 @@ module states {
             var collision = ndgmr.checkRectCollision(wall, this.bullet);
             if (collision) {
                 this.bullet.reset();
+                createjs.Sound.play(this.danger.sound);
                 console.log("Crash!");
             }
         }
@@ -103,6 +104,7 @@ module states {
             var collision = ndgmr.checkRectCollision(wall, this.bullet);
             if (collision) {
                 this.bullet.blockHit();
+                createjs.Sound.play(this.bullet.sound);
                 console.log("Boing!");
             }
         }
@@ -111,6 +113,7 @@ module states {
                 var collision = ndgmr.checkPixelCollision(this.corner[c], this.bullet, 0);
                 if (collision) {
                     this.bullet.angleHit(this.corner[c].rot);
+                    createjs.Sound.play(this.bullet.sound);
                     console.log("Bang!");
                 }
             }
@@ -125,6 +128,7 @@ module states {
             var theDistance = this.distance(ballPosition, goalPosition);
             if (theDistance < (10)) {
                 if (this.goal.isColliding !== true) {
+                    createjs.Sound.play(this.bullet.sound);
                     this.game.removeChild(this.bullet);
                     this.bullet.stop();
                     this.game.addChild(this.next);

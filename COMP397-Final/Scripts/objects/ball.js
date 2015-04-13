@@ -26,6 +26,7 @@ var objects;
             this.ySpeed = 0;
             this._dx = 0;
             this._dy = 0;
+            this.sound = "bounce";
         }
         //PUBLIC METHODS
         Ball.prototype.update = function () {
@@ -176,6 +177,8 @@ var objects;
         };
         Ball.prototype.stop = function () {
             this._fired = false;
+            this.x = this._resetX;
+            this.y = this._resetY;
             this.xSpeed = 0;
             this.ySpeed = 0;
         };

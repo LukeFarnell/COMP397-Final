@@ -25,6 +25,7 @@ var objects;
             this.scaleY += scale;
             this.move = move;
             this._speed = 1.6;
+            this.sound = "hit";
         }
         //PUBLIC METHODS
         Danger.prototype.update = function () {

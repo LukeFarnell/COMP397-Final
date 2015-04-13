@@ -67,6 +67,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\audio\Bacon Pancakes.wav" />
+    <Content Include="assets\audio\Bounce.wav" />
+    <Content Include="assets\audio\Hit.wav" />
     <Content Include="assets\images\Angle.png" />
     <Content Include="assets\images\Angle2.png" />
     <Content Include="assets\images\Background.png" />
@@ -141,7 +144,6 @@
     <TypeScriptCompile Include="Scripts\typings\webrtc\RTCPeerConnection.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\audio\" />
     <Folder Include="assets\fonts\" />
   </ItemGroup>
   <PropertyGroup>

@@ -34,6 +34,8 @@ module objects {
 
             this._dx = 0;
             this._dy = 0;
+
+            this.sound = "bounce";
         }
         //PUBLIC METHODS
         public update() {
@@ -185,6 +187,8 @@ module objects {
         }
         public stop() {
             this._fired = false;
+            this.x = this._resetX;
+            this.y = this._resetY;
             this.xSpeed = 0;
             this.ySpeed = 0;
         }
